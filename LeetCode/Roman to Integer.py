@@ -8,13 +8,13 @@ class Solution(object):
 
         number = 0
 
-        for i in range(len(s)-1): #2
-            if n[s[i + 1]] > n[s[i]]: #X
-                number -= n[s[i]]
+        for i in range(len(s)-1):  # 3
+            if n[s[i + 1]] > n[s[i]]: #C>V, C<X, X>I
+                number -= n[s[i]]   #-5
             else:
-                number += n[s[i]]  # 0+1=1, 0+1=1, 0+1=1
+                number += n[s[i]]  # 95, 105,
 
-        number += n[s[len(s) - 1]]
+        number += n[s[len(s) - 1]] #106
         return number
 
 
@@ -22,4 +22,4 @@ class Solution(object):
 if __name__ == '__main__':
     # begin
     s = Solution()
-    print(s.romanToInt("VIX"))
+    print(s.romanToInt("VCXI"))
