@@ -5,7 +5,7 @@ import os
 import random
 import re
 import sys
-import collections
+
 #
 # Complete the 'getTotalX' function below.
 #
@@ -18,35 +18,28 @@ import collections
 
 def getTotalX(a, b):
     # Write your code here
-    data0 = []
-    data1 = []
+    dataa = []
+    datab = []
+    len_ = len(a+b)
     cm =[]
-    for i in range(1, b[0] + 1):
-        data0.append(i*a[0])
 
-    for i in range(1, b[0] + 1):
-        data1.append(i*a[1])
+    for i in range(1, 101):
+        for number_a in a:
+            if i % number_a == 0:
+                dataa.append(i)
+        for number_b in b:
+            if number_b % i ==0:
+                datab.append(i)
+                total = dataa + datab
+
+    for i in total:
+        if total.count(i) == len_:
+          cm.append(i)
+
+    return len(set(cm))
 
 
-    for i in data0:
-        if i in data1:
-            cm.append(i)
 
-
-    q=[]
-    for i in b:
-        for k in range(a[-1],b[0]+1):
-            if i%k == 0:
-                q.append(k)
-
-    c=[item for item, count in collections.Counter(q).items() if count > 1]
-
-    data11 =[]
-    for i in c:
-        if i in cm:
-            data11.append(i)
-
-    return len(data11)
 
 if __name__ == '__main__':
     fptr = sys.stdout
